@@ -63,50 +63,9 @@ const featuredPlaceholderStyle = featuredPlaceholder
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main id="main-content" class="home-main">
     <section class="hero">
-      <h1 class="hero-title">
-        <span class="hero-title-line">{tr.heroTitle}</span>
-        {
-          tr.heroTitleLine2 && (
-            <span class="hero-title-line hero-title-line--accent">{tr.heroTitleLine2}</span>
-          )
-        }
-      </h1>
+      <h1 class="hero-title">Hi, I'm Bloro</h1>
 
-      <p class="hero-desc">{SITE_DESCRIPTION}</p>
-
-      <div class="hero-divider" aria-hidden="true"></div>
-
-      {
-        heroPosts.length > 0 && (
-          <nav class="hero-recent" aria-label="Selected posts">
-            <div class="hero-recent-list">
-              {
-                heroPosts.map((post) => {
-                  const heroDate = getHeroDateParts(post.data.pubDate);
-
-                  return (
-                    <a href={withBase(`/posts/${post.id}/`)} class="hero-recent-item">
-                      <span class="hero-recent-main">
-                        <span class="hero-recent-title">{post.data.title}</span>
-                        <span class="hero-recent-arrow" aria-hidden="true">
-                          ↗
-                        </span>
-                      </span>
-                      <span class="hero-recent-date">
-                        <time datetime={post.data.pubDate.toISOString()} aria-label={heroDate.label}>{
-                          heroDate.parts.map((part) => (
-                            <span class={`hero-recent-date-${part.type}`}>{part.value}</span>
-                          ))
-                        }</time>
-                      </span>
-                    </a>
-                  );
-                })
-              }
-            </div>
-          </nav>
-        )
-      }
+      <p class="hero-desc">Documenting my journey to becoming a developer.</p>
     </section>
 
     {
