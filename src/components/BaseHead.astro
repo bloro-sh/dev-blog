@@ -93,14 +93,16 @@ const websiteJsonLd =
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
 
 <!-- Theme init — runs early to prevent FOUC -->
 <script is:inline>
   (function () {
     let d;
     try {
-      d = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      d =
+        localStorage.getItem('theme') ||
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     } catch {
       d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
@@ -108,7 +110,9 @@ const websiteJsonLd =
     el.setAttribute('data-theme', d);
     el.classList.add('no-transitions');
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () { el.classList.remove('no-transitions'); });
+      requestAnimationFrame(function () {
+        el.classList.remove('no-transitions');
+      });
     });
   })();
 </script>
